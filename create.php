@@ -2,8 +2,7 @@
 include 'functions.php';
 $pdo = pdo_connect();
 
-if (!empty($_POST))
-{
+if (!empty($_POST)) {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
@@ -13,6 +12,8 @@ if (!empty($_POST))
     $stmt = $pdo->prepare('INSERT INTO contacts VALUES (?, ?, ?, ?, ?, ?)');
     $stmt->execute([$id, $name, $email, $phone, $title, $created]);
     header("location:index.php");
+
+    //
 }
 ?>
 <!DOCTYPE html>
